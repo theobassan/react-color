@@ -82,18 +82,10 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         { transparent && (
           <Checkboard borderRadius="6px 6px 0 0" />
         ) }
-        <div style={ styles.label }>
-          { hex }
-        </div>
       </div>
 
       <div style={ styles.body }>
         <BlockSwatches colors={ colors } onClick={ handleChange } onSwatchHover={ onSwatchHover } />
-        <EditableInput
-          style={{ input: styles.input }}
-          value={ hex }
-          onChange={ handleChange }
-        />
       </div>
     </div>
   )
