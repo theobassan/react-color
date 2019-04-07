@@ -17,6 +17,9 @@ export const BlockSwatches = ({ colors, onClick, onSwatchHover }) => {
         marginRight: '10px',
         marginBottom: '10px',
         borderRadius: '4px',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'rgba(0, 0, 0, 0.23)',
       },
       clear: {
         clear: 'both',
@@ -26,7 +29,7 @@ export const BlockSwatches = ({ colors, onClick, onSwatchHover }) => {
 
   return (
     <div style={ styles.swatches }>
-      { map(colors, c => (
+      { map(colors, (c) => (
         <Swatch
           key={ c }
           color={ c }

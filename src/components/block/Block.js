@@ -4,17 +4,18 @@ import reactCSS from 'reactcss'
 import merge from 'lodash/merge'
 import color from '../../helpers/color'
 
-import { ColorWrap, EditableInput, Checkboard } from '../common'
+import { ColorWrap, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
-export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
-  styles: passedStyles = {}, className = '' }) => {
+export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle, styles: passedStyles = {}, className = '' }) => {
   const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
-    color.isValidHex(hexCode) && onChange({
-      hex: hexCode,
-      source: 'hex',
-    }, e)
+    if (color.isValidHex(hexCode)) {
+      onChange({
+        hex: hexCode,
+        source: 'hex',
+      }, e)
+    }
   }
 
   const styles = reactCSS(merge({
@@ -34,16 +35,36 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'rgba(0, 0, 0, 0.23)',
       },
       body: {
         padding: '10px',
+        borderStyle: 'solid',
+        borderWidth: '0 1px 1px 1px',
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+        borderRadius: '0 0 6px 6px',
       },
-      label: {
-        fontSize: '18px',
-        color: color.getContrastingColor(hex),
-        position: 'relative',
+      triangleBigger: {
+        position: 'absolute',
+        borderWidth: '8px',
+        borderStyle: 'solid',
+        borderColor: 'transparent transparent rgba(0, 0, 0, 0.23)',
+        borderImage: 'initial',
+        top: '-16px',
+        left: '50%',
       },
       triangle: {
+        position: 'absolute',
+        borderWidth: '7px',
+        borderStyle: 'solid',
+        borderColor: `transparent transparent ${ hex } transparent`,
+        borderImage: 'initial',
+        top: '-14px',
+        left: '50%',
+      },
+      triangle2: {
         width: '0px',
         height: '0px',
         borderStyle: 'solid',
@@ -53,18 +74,6 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         top: '-10px',
         left: '50%',
         marginLeft: '-10px',
-      },
-      input: {
-        width: '100%',
-        fontSize: '12px',
-        color: '#666',
-        border: '0px',
-        outline: 'none',
-        height: '22px',
-        boxShadow: 'inset 0 0 0 1px #ddd',
-        borderRadius: '4px',
-        padding: '0 7px',
-        boxSizing: 'border-box',
       },
     },
     'hide-triangle': {
@@ -76,6 +85,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
 
   return (
     <div style={ styles.card } className={ `block-picker ${ className }` }>
+      <div style={ styles.triangleBigger } />
       <div style={ styles.triangle } />
 
       <div style={ styles.head }>
