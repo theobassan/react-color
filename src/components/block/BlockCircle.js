@@ -64,6 +64,7 @@ export const BlockCircle = ({ onChange, onSwatchHover, hex, colors, width, trian
         borderImage: 'initial',
         top: '-13px',
         left: 'calc(50% + 1px)',
+        zIndex: '1302',
       },
       triangle2: {
         width: '0px',

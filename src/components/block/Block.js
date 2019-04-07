@@ -64,6 +64,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle, s
         borderImage: 'initial',
         top: '-13px',
         left: 'calc(50% + 1px)',
+        zIndex: '1302',
       },
       triangle2: {
         width: '0px',
