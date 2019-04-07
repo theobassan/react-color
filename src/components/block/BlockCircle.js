@@ -97,7 +97,15 @@ export const BlockCircle = ({ onChange, onSwatchHover, hex, colors, width, trian
       </div>
 
       <div style={ styles.body }>
-        <CircleSwatch colors={ colors } onClick={ handleChange } onSwatchHover={ onSwatchHover } />
+        { map(colors, (c) => (
+          <CircleSwatch
+            key={ c }
+            color={ c }
+            onClick={ handleChange }
+            onSwatchHover={ onSwatchHover }
+            active={ hex === c.toLowerCase() }
+          />
+        )) }
       </div>
     </div>
   )
