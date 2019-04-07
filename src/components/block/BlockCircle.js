@@ -42,11 +42,15 @@ export const BlockCircle = ({ onChange, onSwatchHover, hex, colors, width, trian
         borderColor: 'rgba(0, 0, 0, 0.23)',
       },
       body: {
-        padding: '10px',
+        paddingTop: '10px',
+        paddingLeft: '10px',
         borderStyle: 'solid',
         borderWidth: '0 1px 1px 1px',
         borderColor: 'rgba(0, 0, 0, 0.23)',
         borderRadius: '0 0 6px 6px',
+        width: '100%',
+        display: 'flex',
+        flexWrap: 'wrap',
       },
       triangleBigger: {
         position: 'absolute',
