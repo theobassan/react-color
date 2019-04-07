@@ -26,6 +26,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle, s
         boxShadow: '0 1px rgba(0,0,0,.1)',
         borderRadius: '6px',
         position: 'relative',
+        top: '-1px',
       },
       head: {
         height: '110px',
@@ -52,7 +53,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle, s
         borderStyle: 'solid',
         borderColor: 'transparent transparent rgba(0, 0, 0, 0.23)',
         borderImage: 'initial',
-        top: '-16px',
+        top: '-15px',
         left: '50%',
       },
       triangle: {
@@ -61,8 +62,8 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle, s
         borderStyle: 'solid',
         borderColor: `transparent transparent ${ hex } transparent`,
         borderImage: 'initial',
-        top: '-14px',
-        left: '50%',
+        top: '-13px',
+        left: 'calc(50% + 1px)',
       },
       triangle2: {
         width: '0px',
