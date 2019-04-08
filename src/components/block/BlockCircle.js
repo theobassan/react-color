@@ -29,8 +29,35 @@ export const BlockCircle = ({ onChange, onSwatchHover, hex, colors, width, trian
         position: 'relative',
         top: '-1px',
       },
+      /*
       head: {
         height: '110px',
+        background: hex,
+        borderRadius: '6px 6px 0 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+      },
+      */
+      head: {
+        height: '110px',
+        borderRadius: '6px 6px 0 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+      },
+      headIntern: {
+        margin: '10px',
+        height: '100%',
+        width: '100%',
         background: hex,
         borderRadius: '6px 6px 0 0',
         display: 'flex',
@@ -96,9 +123,11 @@ export const BlockCircle = ({ onChange, onSwatchHover, hex, colors, width, trian
       <div style={ styles.triangle } />
 
       <div style={ styles.head }>
-        { transparent && (
-          <Checkboard borderRadius="6px 6px 0 0" />
-        ) }
+        <div style={ styles.headIntern }>
+          { transparent && (
+            <Checkboard borderRadius="6px 6px 0 0" />
+          ) }
+        </div>
       </div>
 
       <div style={ styles.body }>
